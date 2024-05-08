@@ -4,27 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>The Shoe Company</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="bg-black text-white">
-    <header
-      class="section-container flex items-center justify-between fixed w-full left-[50%] -translate-x-[50%] bg-black/70 backdrop-blur-sm z-10"
-    >
-      <a href="#">
-        <img class="w-24 md:w-32" src="./img/logo.png" alt="logo" data-aos="slide-right" />
-        <p class="text-xs -mt-6 md:text-sm md:-mt-8" data-aos="slide-left">The Shoe Company</p>
-      </a>
-      <nav class="hidden md:block space-x-6 lg:space-x-8 lg:text-2xl">
-        <a class="font-bold hover:text-gray-400 duration-500" href="#hero">Home</a>
-        <a class="font-bold hover:text-gray-400 duration-500" href="#how-it-works">How It Works?</a>
-        <a class="font-bold hover:text-gray-400 duration-500" href="#about">About</a>
-        <a class="font-bold hover:text-gray-400 duration-500" href="#testimonials">Testimonials</a>
-        <a class="font-bold hover:text-gray-400 duration-500" href="#contact">Contact Us</a>
-      </nav>
-      <button class="text-5xl md:hidden">≡</button>
-    </header>
+  <body class="bg-black text-white font-[Poppins]">
+    <header class="md:fixed md:w-full bg-black/70 backdrop-blur-sm z-10">
+      <nav class="flex justify-between items-center w-[92%]  mx-auto">
+          <div>
+              <img class="w-24 md:w-32" src="./img/logo.png" alt="logo" data-aos="slide-right" />
+              <p class="text-xs -mt-6 md:text-sm md:-mt-8" data-aos="slide-left">The Shoe Company</p>
+          </div>
+          <div
+              class="nav-links duration-500 md:static absolute  md:min-h-fit min-h-[80vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+              <ul class="hidden md:flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 lg:space-x-8 lg:text-2xl mt-7">
+                  <li>
+                      <a class="font-bold hover:text-gray-400 duration-500" href="#hero">Home</a>
+                  </li>
+                  <li>
+                      <a class="font-bold hover:text-gray-400 duration-500" href="#how-it-works">How It Works?</a>
+                  </li>
+                  <li>
+                      <a class="font-bold hover:text-gray-400 duration-500" href="#about">About</a>
+                  </li>
+                  <li>
+                      <a class="font-bold hover:text-gray-400 duration-500" href="#testimonials">Testimonials</a>
+                  </li>
+                  <li>
+                      <a class="font-bold hover:text-gray-400 duration-500" href="#contact">Contact Us</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="flex items-center gap-6">
+              <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-4xl cursor-pointer md:hidden"></ion-icon>
+          </div>
+  </header>
     <section
       id="hero"
       class="bg-[url('./img/hero-background.png')] bg-cover md:bg-contain bg-no-repeat bg-right pt-36 section-container"
@@ -220,6 +238,12 @@
     AOS.init({
       duration: 2300
     });
+
+    const navLinks = document.querySelector('.nav-links')
+    nav = document.getElementsByTagName('nav');
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[7%]')}
   </script>
   </body>
 </html>
